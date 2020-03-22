@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\User\Desktop\for_test\for_test\Source.cpp(5,13): warning C4326:  возвращаемый тип "main" должен быть "int", а не "void"
+  for_test.vcxproj -> C:\Users\User\Desktop\for_test\x64\Debug\for_test.exe

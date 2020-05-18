@@ -1,0 +1,10 @@
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.Form1.resources
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.Properties.Resources.resources
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Graf_Eiler.exe.config
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Graf_Eiler.exe
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Graf_Eiler.pdb
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.exe
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.pdb

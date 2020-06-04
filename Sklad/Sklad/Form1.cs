@@ -23,5 +23,11 @@ namespace Sklad
             Sklad sk = new Sklad();
             sk.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            add_new_pr pr = new add_new_pr();
+            pr.ShowDialog();
+        }
     }
 }

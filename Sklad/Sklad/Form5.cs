@@ -50,7 +50,7 @@ namespace Sklad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int new_kol_buy = 0;
+            int new_sum = 0;
             double kol_buy = 0;
             int skidka = 0;
             int cost = 0;
@@ -59,13 +59,16 @@ namespace Sklad
                 string connectionString = "server=localhost;user=root;database=Sklad;password=0000;";
                 MySqlConnection connection = new MySqlConnection(connectionString);
                 connection.Open();
-                string sql = "SELECT `company`,`kol_buy` FROM `buyers`";
+                string sql = "SELECT `company`,`kol_buy`,`summ_sell` FROM `buyers`";
                 MySqlCommand command = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     if (reader[0].ToString() == comboBox2.SelectedItem.ToString())
+                    {
                         kol_buy = Convert.ToInt32(reader[1].ToString());
+                        new_sum = Convert.ToInt32(reader[2].ToString());
+                    }
                 }
                 reader.Close();
                 connection.Close();
@@ -93,13 +96,14 @@ namespace Sklad
                     MySqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        if (reader[1].ToString() == comboBox2.SelectedItem.ToString())
+                        if (reader[1].ToString() == comboBox1.SelectedItem.ToString())
                         {
                             cost = Convert.ToInt32(reader[2].ToString());
                             ss = reader[0].ToString();
                         }
                     }
-                    cost -= skidka;//Теперь у нас известна финальная цена.
+                    cost *= kol;
+                    cost = cost - skidka;//Теперь у нас известна финальная цена.
                     reader.Close();
                     //Теперь подтверждение сделки.
                     DialogResult result = MessageBox.Show(
@@ -110,11 +114,17 @@ namespace Sklad
                             MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
+                        new_sum += cost;
                         //INSERT INTO `sklad`.`nakladnaya` (`N_nakl`, `Date`, `Time`, `id_product`, `kol`, `cost`) VALUES('0', '0', '0', '0', '10', '100');
-                        string sql1 = "INSERT INTO `sklad`.`nakladnaya`(`N_nakl`, `Date`, `Time`, `id_product`, `kol`, `cost`) VALUES('" + IIDD + "', '0', '0', '" + ss + "', '" + textBox1.Text+ "', '" + cost + "' )";
-                        
+                        string sql1 = "INSERT INTO `sklad`.`nakladnaya`(`N_nakl`, `Date`, `Time`, `id_product`, `kol`, `cost`,`buyer`,`seller`) VALUES('" + IIDD + "', '0', '0', '" + ss + "', '" + textBox1.Text+ "', '" + cost + "', '"+ comboBox2.SelectedItem.ToString()+"','"+ comboBox3.SelectedItem.ToString()+"' )";
+                        string sql2 = "UPDATE `sklad`.`buyers` SET `kol_buy` = '"+(kol_buy+1)+"' WHERE (`company` = '"+ comboBox3.SelectedItem.ToString() + "')";
+                        string sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (new_sum) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
                         MySqlCommand command1 = new MySqlCommand(sql1, connection);
+                        MySqlCommand command2 = new MySqlCommand(sql2, connection);
+                        MySqlCommand command3 = new MySqlCommand(sql3, connection);
                         command1.ExecuteNonQuery();
+                        command2.ExecuteNonQuery();
+                        command3.ExecuteNonQuery();
                         MessageBox.Show("Сделка совершена!", "Успешно!");
                         this.Close();
                     }

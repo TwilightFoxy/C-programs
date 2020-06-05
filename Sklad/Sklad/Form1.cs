@@ -29,5 +29,11 @@ namespace Sklad
             add_new_pr pr = new add_new_pr();
             pr.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            add_buyer ad = new add_buyer();
+            ad.ShowDialog();
+        }
     }
 }

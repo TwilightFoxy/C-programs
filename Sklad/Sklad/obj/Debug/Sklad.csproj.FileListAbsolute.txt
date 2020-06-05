@@ -26,3 +26,4 @@ C:\Me\repo\C-programs\Sklad\Sklad\obj\Debug\Sklad.csproj.CopyComplete
 C:\Me\repo\C-programs\Sklad\Sklad\obj\Debug\Sklad.exe
 C:\Me\repo\C-programs\Sklad\Sklad\obj\Debug\Sklad.pdb
 C:\Me\repo\C-programs\Sklad\Sklad\obj\Debug\Sklad.add_new_pr.resources
+C:\Me\repo\C-programs\Sklad\Sklad\obj\Debug\Sklad.add_buyer.resources

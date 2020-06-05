@@ -119,9 +119,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(15, 244);
+            this.button1.Location = new System.Drawing.Point(12, 199);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(261, 32);
+            this.button1.Size = new System.Drawing.Size(220, 35);
             this.button1.TabIndex = 16;
             this.button1.Text = "Провести операцию";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(243, 247);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label4);

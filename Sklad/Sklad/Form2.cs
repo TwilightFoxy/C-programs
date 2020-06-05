@@ -25,8 +25,11 @@ namespace Sklad
                 //    
                 //   
                 //}
-                richTextBox1.Text += reader[4].ToString() + " содержится в колличестве " + reader[2].ToString() + " " + reader[5].ToString() + " на " + reader[3].ToString() + " стелаже.\n";
-                prov = false;
+                if (reader[2].ToString() != "0")
+                {
+                    richTextBox1.Text += reader[4].ToString() + " содержится в колличестве " + reader[2].ToString() + " " + reader[5].ToString() + " на " + reader[3].ToString() + " стелаже.\n";
+                    prov = false;
+                }
             }
             if (prov)
                 MessageBox.Show("Нет совпадений!");

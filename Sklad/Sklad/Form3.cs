@@ -13,7 +13,7 @@ namespace Sklad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string id = "";
+            string id = "0";
             string connectionString = "server=localhost;user=root;database=Sklad;password=0000;";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
@@ -26,6 +26,7 @@ namespace Sklad
             }
             reader.Close();
             connection.Close();
+            if (id == "") id = "0";
             string name = textBox1.Text;
             string e_u_m = textBox4.Text;
             string live = textBox3.Text;
@@ -64,6 +65,11 @@ namespace Sklad
                     else
                         MessageBox.Show("Ошибка!", "Что-то пошло не так!");
                 }
+                
+
+
+
+
                 catch
                 {
                     MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
@@ -74,16 +80,37 @@ namespace Sklad
                     _databaseManager.CloseConnection();
                 }
 
-
-                /*
-                string connectionString1 =   "server=localhost;user=root;database=Sklad;password=0000;";
+                int new_N = 0;
+                string connectionString1 = "server=localhost;user=root;database=Sklad;password=0000;";
                 MySqlConnection connection1 = new MySqlConnection(connectionString1);
                 connection1.Open();
-                string sql1 = "INSERT INTO `products` (`id_product`, `Name`, `U_o_m`, `Shelf_live`, `Price`) VALUES (" + idd + ", " + name + ", " + e_u_m + ", " + live + ", " + Price + ")";
-                MySqlCommand command1 = new MySqlCommand(sql1, connection1);
-                command1.ExecuteNonQuery();
+                string sql_N_nakl = "SELECT MAX(`N_nakl`) AS N_nakl FROM `warehouse`";
+                MySqlCommand N_nakl = new MySqlCommand(sql_N_nakl, connection1);
+                MySqlDataReader reader_N_nakl = N_nakl.ExecuteReader();
+                while (reader_N_nakl.Read())
+                {
+                    if (reader_N_nakl[0].ToString() != "")
+                        new_N = Convert.ToInt32(reader_N_nakl[0].ToString()) + 1;
+                    else
+                        new_N = 0;
+                }
+                reader_N_nakl.Close();
+                int stelash = 0;
+                string sql_new_stelash = "SELECT MAX(`stelash`) AS stelash FROM `warehouse`";
+                MySqlCommand new_stelash = new MySqlCommand(sql_new_stelash, connection);
+                MySqlDataReader reader_new_stelash = new_stelash.ExecuteReader();
+                while (reader_new_stelash.Read())
+                {
+                    if (reader_new_stelash[0].ToString() != "")
+                        stelash = Convert.ToInt32(reader_new_stelash[0].ToString()) + 1;
+                    else
+                        stelash = 0;
+                }
+                reader_new_stelash.Close();
+                string sql4 = "INSERT INTO `sklad`.`warehouse`(`N_nakl`, `id_product`, `kol`, `stelash`) VALUES('" + new_N + "', '"+(Convert.ToInt32(id) + 1)+"', '0', '"+ stelash+"')";
+                MySqlCommand command4 = new MySqlCommand(sql4, connection1);
+                command4.ExecuteNonQuery();
                 connection1.Close();
-                */
             }
             else
                 MessageBox.Show("Заполните все поля!");

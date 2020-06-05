@@ -55,7 +55,7 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox1.Location = new System.Drawing.Point(15, 29);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 24);
+            this.comboBox1.Size = new System.Drawing.Size(173, 24);
             this.comboBox1.TabIndex = 9;
             // 
             // label2
@@ -64,16 +64,16 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.Location = new System.Drawing.Point(12, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 17);
+            this.label2.Size = new System.Drawing.Size(176, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Сколько едениц товара купить?";
+            this.label2.Text = "Сколько купить/продать?";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.textBox1.Location = new System.Drawing.Point(15, 76);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 23);
+            this.textBox1.Size = new System.Drawing.Size(173, 23);
             this.textBox1.TabIndex = 11;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress_1);
             // 
@@ -93,7 +93,7 @@
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox2.Location = new System.Drawing.Point(15, 122);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(152, 24);
+            this.comboBox2.Size = new System.Drawing.Size(173, 24);
             this.comboBox2.TabIndex = 13;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -113,7 +113,7 @@
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox3.Location = new System.Drawing.Point(15, 169);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(152, 24);
+            this.comboBox3.Size = new System.Drawing.Size(173, 24);
             this.comboBox3.TabIndex = 15;
             // 
             // button1
@@ -121,7 +121,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button1.Location = new System.Drawing.Point(12, 199);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 35);
+            this.button1.Size = new System.Drawing.Size(176, 37);
             this.button1.TabIndex = 16;
             this.button1.Text = "Провести операцию";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 247);
+            this.ClientSize = new System.Drawing.Size(202, 252);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label4);

@@ -132,19 +132,19 @@ namespace Sklad
                     bool prov = true;
                     if (result == DialogResult.Yes)
                     {
-                        new_sum += cost;
-                        //INSERT INTO `sklad`.`nakladnaya` (`N_nakl`, `Date`, `Time`, `id_product`, `kol`, `cost`) VALUES('0', '0', '0', '0', '10', '100');
+                        new_sum += cost; string sql3 = "", sql4 = "";
                         string sql1 = "INSERT INTO `sklad`.`nakladnaya`(`N_nakl`, `Date`, `Time`, `id_product`, `kol`, `cost`,`buyer`,`seller`) VALUES('" + IIDD + "', '0', '0', '" + ss + "', '" + textBox1.Text + "', '" + cost + "', '" + comboBox2.SelectedItem.ToString() + "','" + comboBox3.SelectedItem.ToString() + "' )";
                         string sql2 = "UPDATE `sklad`.`buyers` SET `kol_buy` = '" + (kol_buy + 1) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
-                        string sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (new_sum) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
-                        string sql4 = "";
+                        if (comboBox2.SelectedItem.ToString() != "Наша компания")
+                            sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (Math.Round(new_sum*1.25)) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
+                        else
+                            sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (new_sum) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
                         if (comboBox2.SelectedItem.ToString() != "Наша компания")
                             sql4 = "UPDATE `sklad`.`warehouse` SET `kol` = '" + (old_kol + Convert.ToInt32(textBox1.Text)) + "' WHERE (`id_product` = '" + ss + "')";
                         else if (old_kol - Convert.ToInt32(textBox1.Text) >= 0)
                             sql4 = "UPDATE `sklad`.`warehouse` SET `kol` = '" + (old_kol - Convert.ToInt32(textBox1.Text)) + "' WHERE (`id_product` = '" + ss + "')";
                         else
                             prov = false;
-                        //string sql4 = "INSERT INTO `sklad`.`warehouse`(`N_nakl`, `id_product`, `kol`, `stelash`) VALUES('" + new_N + "', '" + ss + "', '" + textBox1.Text + "', '" + stelash + "')";
                         if (prov)
                         {
                             MySqlCommand command1 = new MySqlCommand(sql1, connection);

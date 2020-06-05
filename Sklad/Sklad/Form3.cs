@@ -65,11 +65,6 @@ namespace Sklad
                     else
                         MessageBox.Show("Ошибка!", "Что-то пошло не так!");
                 }
-                
-
-
-
-
                 catch
                 {
                     MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");

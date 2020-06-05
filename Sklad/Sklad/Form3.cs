@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Sklad
 {
@@ -50,7 +50,7 @@ namespace Sklad
 
                     if (_mySqlCommand.ExecuteNonQuery() == 1)
                     {
-                        DialogResult result = MessageBox.Show( 
+                        DialogResult result = MessageBox.Show(
                             "Закончить дообавление записей?", "Успех",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Information,

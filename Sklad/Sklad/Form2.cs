@@ -1,6 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Sklad
 {
@@ -26,10 +25,10 @@ namespace Sklad
                 //    
                 //   
                 //}
-                richTextBox1.Text += reader[4].ToString() + " содержится в колличестве " + reader[2].ToString()+" "+ reader[5].ToString()+" на " + reader[3].ToString() + " стелаже.\n";
+                richTextBox1.Text += reader[4].ToString() + " содержится в колличестве " + reader[2].ToString() + " " + reader[5].ToString() + " на " + reader[3].ToString() + " стелаже.\n";
                 prov = false;
             }
-            if(prov)
+            if (prov)
                 MessageBox.Show("Нет совпадений!");
             reader.Close();
             connection.Close();

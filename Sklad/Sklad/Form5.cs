@@ -32,7 +32,7 @@ namespace Sklad
             }
             reader2.Close();
 
-            string sql1 = "SELECT MAX(`N_nakl`) AS N_nakl FROM `nakladnaya`";
+            string sql1 = "SELECT MAX(`N_nakl`) AS `N_nakl` FROM `nakladnaya`";
             MySqlCommand command1 = new MySqlCommand(sql1, connection);
             MySqlDataReader reader1 = command1.ExecuteReader();
             while (reader1.Read())
@@ -45,6 +45,13 @@ namespace Sklad
                     IIDD = 0;
             }
             reader1.Close();
+            if (IIDD ==9||IIDD>9)
+            {
+                string sql_del = "DELETE FROM `sklad`.`nakladnaya`";
+                MySqlCommand command2 = new MySqlCommand(sql_del, connection);
+                command2.ExecuteNonQuery();
+
+            }
             connection.Close();
         }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,9 +143,9 @@ namespace Sklad
                         string sql1 = "INSERT INTO `sklad`.`nakladnaya`(`N_nakl`, `Date`, `Time`, `id_product`, `kol`, `cost`,`buyer`,`seller`) VALUES('" + IIDD + "', '0', '0', '" + ss + "', '" + textBox1.Text + "', '" + cost + "', '" + comboBox2.SelectedItem.ToString() + "','" + comboBox3.SelectedItem.ToString() + "' )";
                         string sql2 = "UPDATE `sklad`.`buyers` SET `kol_buy` = '" + (kol_buy + 1) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
                         if (comboBox2.SelectedItem.ToString() != "Наша компания")
-                            sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (Math.Round(new_sum*1.25)) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
-                        else
                             sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (new_sum) + "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
+                        else
+                            sql3 = "UPDATE `sklad`.`buyers` SET `summ_sell` = '" + (Math.Round(new_sum * 1.25))+ "' WHERE (`company` = '" + comboBox3.SelectedItem.ToString() + "')";
                         if (comboBox2.SelectedItem.ToString() != "Наша компания")
                             sql4 = "UPDATE `sklad`.`warehouse` SET `kol` = '" + (old_kol + Convert.ToInt32(textBox1.Text)) + "' WHERE (`id_product` = '" + ss + "')";
                         else if (old_kol - Convert.ToInt32(textBox1.Text) >= 0)

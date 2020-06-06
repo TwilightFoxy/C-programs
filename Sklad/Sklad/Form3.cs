@@ -92,7 +92,7 @@ namespace Sklad
                 reader_N_nakl.Close();
                 int stelash = 0;
                 string sql_new_stelash = "SELECT MAX(`stelash`) AS stelash FROM `warehouse`";
-                MySqlCommand new_stelash = new MySqlCommand(sql_new_stelash, connection);
+                MySqlCommand new_stelash = new MySqlCommand(sql_new_stelash, connection1);
                 MySqlDataReader reader_new_stelash = new_stelash.ExecuteReader();
                 while (reader_new_stelash.Read())
                 {

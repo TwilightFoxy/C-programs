@@ -8,3 +8,11 @@ C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Graf_Eiler.exe
 C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Graf_Eiler.pdb
 C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.exe
 C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.pdb
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Elasticsearch.Net.dll
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\System.Buffers.dll
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Elasticsearch.Net.pdb
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\Elasticsearch.Net.xml
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\System.Buffers.xml
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\User\source\repos\Graf_Eiler\Graf_Eiler\obj\Debug\Graf_Eiler.csproj.CopyComplete

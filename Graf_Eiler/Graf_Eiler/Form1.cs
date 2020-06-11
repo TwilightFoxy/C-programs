@@ -333,5 +333,50 @@ namespace Graf_Eiler
             /////////////////////////////////////////////////////////////
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int i, j, k;
+            string matSt = richTextBox3.Text;
+            String[] str = matSt.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);//Разбиваем матрицу на строки
+            int n = str.Length;
+            int z = 0;
+            int[,] array = new int[n, n];
+            String[] pointsFF = matSt.Split(new char[] { ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries);//Разбиваем матрицу на символы
+            for (i = 0; i < n; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    array[i, j] = Convert.ToInt32(pointsFF[z]);
+                    z++;
+                }
+            }
+            //int n = 4;
+            /*
+            int[,] array = new int[4, 4] // Создание двумерного массива 6x6
+                                         //Матрица смежности для применения Алгоритма Флойда
+            {
+                {0,10,11,0,},
+                {10,0,8,5},
+                {11,8,0,3},
+                {0,5,3,0}
+            };
+            */
+
+            // Применение алгоритма Флойда с использованием матрицы смежности
+            for (k = 0; k < n; k++)
+                for (i = 0; i < n; i++)
+                    for (j = 0; j < n; j++)
+                        if (array[i, j] > array[i, k] + array[k, j])
+                            array[i, j] = array[i, k] + array[k, j];
+
+            // Вывод измененной матрицы смежности на экран
+            label7.Text = "Алгоритм Флойда : \n";
+            for (i = 0; i < n; i++)
+            {
+                for (j = 0; j < n; j++)
+                    label7.Text += array[i, j] + " ";
+                label7.Text += "\n";
+            }
+        }
     }
 }
